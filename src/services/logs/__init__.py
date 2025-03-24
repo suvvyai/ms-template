@@ -4,6 +4,8 @@ from loguru import logger
 
 from services.logs.handlers import UvicornHandler
 
+__all__ = ["UvicornHandler"]
+
 
 def configure_logger() -> None:
     log_format_all = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level> {exception}\n"
