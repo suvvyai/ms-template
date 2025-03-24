@@ -4,7 +4,7 @@ from loguru import logger
 
 from services.logs.handlers import UvicornHandler
 
-__all__ = ["UvicornHandler"]
+__all__ = ["UvicornHandler", "configure_logger", "get_uvicorn_log_config"]
 
 
 def configure_logger() -> None:
