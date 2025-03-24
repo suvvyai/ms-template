@@ -2,21 +2,27 @@ import sys
 
 from loguru import logger
 
-from app.services.logs.handlers import UvicornHandler
+from app.logs.handlers import UvicornHandler
 
 
 def configure_logger() -> None:
     log_format_all = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level> {exception}\n"
-    log_format_request = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | {message} {exception}\n"
+    log_format_request = (
+        "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | {message} {exception}\n"
+    )
 
-    def log_format(record: "Record") -> str:  # type: ignore
+    def log_format(record: "Record") -> str:  # type: ignore  # noqa: F821
         if record["level"].name == "REQUEST":
             return log_format_request
         return log_format_all
 
     logger.remove()
     logger.add(
-        sys.stdout, colorize=True, format=log_format, diagnose=True, backtrace=False
+        sys.stdout,
+        colorize=True,
+        format=log_format,
+        diagnose=True,
+        backtrace=False,
     )
     logger.add(
         "log.log",
@@ -53,10 +59,10 @@ def get_uvicorn_log_config() -> dict:
                 "stream": "ext://sys.stdout",
             },
             "uvicorn": {
-                "()": "app.services.logs.handlers.UvicornHandler",
+                "()": "app.logs.handlers.UvicornHandler",
             },
             "uvicorn.access": {
-                "()": "app.services.logs.handlers.UvicornHandler",
+                "()": "app.logs.handlers.UvicornHandler",
             },
         },
         "loggers": {
