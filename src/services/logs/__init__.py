@@ -2,7 +2,7 @@ import sys
 
 from loguru import logger
 
-from app.logs.handlers import UvicornHandler
+from services.logs.handlers import UvicornHandler
 
 
 def configure_logger() -> None:
@@ -59,10 +59,10 @@ def get_uvicorn_log_config() -> dict:
                 "stream": "ext://sys.stdout",
             },
             "uvicorn": {
-                "()": "app.logs.handlers.UvicornHandler",
+                "()": "services.logs.handlers.UvicornHandler",
             },
             "uvicorn.access": {
-                "()": "app.logs.handlers.UvicornHandler",
+                "()": "services.logs.handlers.UvicornHandler",
             },
         },
         "loggers": {
