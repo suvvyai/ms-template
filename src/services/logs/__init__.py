@@ -63,9 +63,6 @@ def get_uvicorn_log_config() -> dict:
             "uvicorn": {
                 "()": "services.logs.handlers.UvicornHandler",
             },
-            "uvicorn.access": {
-                "()": "services.logs.handlers.UvicornHandler",
-            },
         },
         "loggers": {
             "uvicorn": {"handlers": ["uvicorn"], "level": "INFO"},
