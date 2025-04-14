@@ -1,2 +1,3 @@
-# Template for my Python projects with FastAPI
-Feel free to use! Loguru included!
+# Репозиторий-шаблон для микросервисов внутри Савви
+
+[<kbd> Использовать этот шаблон </kbd>](https://github.com/suvvyai/ms-template/generate)
