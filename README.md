@@ -64,9 +64,12 @@ MONGO__CERT_FILE_PATH=/path/to/cert.pem (опционально)
 MICROSERVICES__KEY=your-secret-key
 ```
 
-## Линтинг и форматирование
+## Список основных команд
 
 ```bash
 ruff check
 ruff format
+mypy .
+pre-commit install
+uv sync
 ```
