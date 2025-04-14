@@ -6,6 +6,7 @@ from fastapi_enum_errors import errorenum_prepare_app
 from starlette.responses import RedirectResponse
 
 from app.routers import router as main_router
+from services.auth import MicroserviceAuth
 from services.database import initialize_database
 from services.errors import SuvvyError
 
@@ -16,7 +17,11 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None]:
     yield
 
 
-app = FastAPI(lifespan=lifespan, description=SuvvyError.build_md_table_for_all_errors())
+app = FastAPI(
+    lifespan=lifespan,
+    description=SuvvyError.build_md_table_for_all_errors(),
+    dependencies=[MicroserviceAuth],
+)
 errorenum_prepare_app(app)
 
 
