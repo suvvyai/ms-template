@@ -13,6 +13,8 @@ services:
       MONGO__URL: mongodb://mongo:27017/
       MONGO__DB_NAME: ProductionTest
 
+      MICROSERVICES__KEY: testkey
+
     depends_on:
       mongo:
         condition: service_started
