@@ -1,6 +1,6 @@
 # Репозиторий-шаблон для микросервисов внутри Савви
 
-### [<kbd> Использовать этот шаблон </kbd>](https://github.com/suvvyai/ms-template/generate)
+[![Использовать этот шаблон](https://img.shields.io/badge/Использовать_этот_шаблон-blue?style=for-the-badge&logoColor=white&logo=github)](https://github.com/suvvyai/ms-template/generate)
 
 ## Содержание шаблона
 
