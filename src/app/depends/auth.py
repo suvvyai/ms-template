@@ -7,7 +7,7 @@ from core.errors import SuvvyError
 
 
 class MicroserviceAuthentication(SecurityBase):
-    model = APIKey(name="Microservice-Api-Key", **{"in": APIKeyIn.header})  # type: ignore[arg-type]
+    model: APIKey = APIKey(name="Microservice-Api-Key", **{"in": APIKeyIn.header})  # type: ignore[arg-type]
 
     def __init__(self, api_key: str, scheme_name: str | None = None):
         self.api_key = api_key
