@@ -2,8 +2,8 @@ from fastapi import Depends
 from fastapi.openapi.models import APIKey, APIKeyIn, SecurityBase
 from fastapi.requests import Request
 
-from services import settings
-from services.errors import SuvvyError
+from core import settings
+from core.errors import SuvvyError
 
 
 class MicroserviceAuthentication(SecurityBase):

@@ -2,7 +2,7 @@ import sys
 
 from loguru import logger
 
-from services.logs.handlers import UvicornHandler
+from core.logs.handlers import UvicornHandler
 
 __all__ = ["UvicornHandler", "configure_logger", "get_uvicorn_log_config"]
 
@@ -61,7 +61,7 @@ def get_uvicorn_log_config() -> dict:
                 "stream": "ext://sys.stdout",
             },
             "uvicorn": {
-                "()": "services.logs.handlers.UvicornHandler",
+                "()": "core.logs.handlers.UvicornHandler",
             },
         },
         "loggers": {

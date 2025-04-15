@@ -5,10 +5,10 @@ from fastapi import FastAPI
 from fastapi_enum_errors import errorenum_prepare_app
 from starlette.responses import RedirectResponse
 
+from app.depends.auth import MicroserviceAuth
 from app.routers import router as main_router
-from services.auth import MicroserviceAuth
-from services.database import initialize_database
-from services.errors import SuvvyError
+from core.database.database import initialize_database
+from core.errors import SuvvyError
 
 
 @asynccontextmanager

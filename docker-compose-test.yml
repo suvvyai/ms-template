@@ -18,8 +18,6 @@ services:
     depends_on:
       mongo:
         condition: service_started
-      redis:
-        condition: service_started
 
   mongo:
     image: mongo:latest

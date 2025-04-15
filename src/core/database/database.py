@@ -4,7 +4,7 @@ from beanie import init_beanie
 from loguru import logger
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from services import settings
+from core import settings
 
 
 async def initialize_database() -> None:
