@@ -26,14 +26,6 @@ def configure_logger() -> None:
         diagnose=True,
         backtrace=False,
     )
-    logger.add(
-        "log.log",
-        rotation="1 week",
-        diagnose=True,
-        enqueue=True,
-        colorize=True,
-        backtrace=True,
-    )
     logger.level("DEBUG", color="<fg #7f7f7f>")
     logger.level("INFO", color="<white>")
     logger.level("SUCCESS", color="<green>")
