@@ -7,7 +7,7 @@ from starlette.responses import RedirectResponse
 
 from app.depends.auth import MicroserviceAuth
 from app.routers import router as main_router
-from core.database.database import initialize_database
+from core.database import initialize_database
 from core.errors import SuvvyError
 
 
