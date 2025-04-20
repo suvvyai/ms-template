@@ -14,6 +14,10 @@ class MicroservicesSettings(BaseModel):
     key: str
 
 
+class ServerSettings(BaseModel):
+    workers: int = 1
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_nested_delimiter="__",
@@ -22,6 +26,7 @@ class Settings(BaseSettings):
 
     mongo: MongoSettings
     microservices: MicroservicesSettings
+    server: ServerSettings = ServerSettings()
 
 
 settings = Settings()  # type: ignore[call-arg]
