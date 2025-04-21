@@ -2,7 +2,7 @@ import sys
 
 from loguru import logger
 
-from services.logs.handlers import UvicornHandler
+from core.logs.handlers import UvicornHandler
 
 __all__ = ["UvicornHandler", "configure_logger", "get_uvicorn_log_config"]
 
@@ -25,14 +25,6 @@ def configure_logger() -> None:
         format=log_format,
         diagnose=True,
         backtrace=False,
-    )
-    logger.add(
-        "log.log",
-        rotation="1 week",
-        diagnose=True,
-        enqueue=True,
-        colorize=True,
-        backtrace=True,
     )
     logger.level("DEBUG", color="<fg #7f7f7f>")
     logger.level("INFO", color="<white>")
@@ -61,7 +53,7 @@ def get_uvicorn_log_config() -> dict:
                 "stream": "ext://sys.stdout",
             },
             "uvicorn": {
-                "()": "services.logs.handlers.UvicornHandler",
+                "()": "core.logs.handlers.UvicornHandler",
             },
         },
         "loggers": {

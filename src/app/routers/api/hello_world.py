@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from schemas.api.hi import HelloWorldRequest, HelloWorldResponse
+from app.schemas.api.hi import HelloWorldRequest, HelloWorldResponse
 
 router = APIRouter()
 

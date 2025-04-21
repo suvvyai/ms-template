@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  test:
+    image: suvvyai/localtest:latest
+
+    env_file:
+      - ".test.env"
+
+    entrypoint: "pytest"
+
+    environment:
+      MONGO__URL: mongodb://mongo:27017/
+      MONGO__DB_NAME: ProductionTest
+
+      MICROSERVICES__KEY: testkey
+
+    depends_on:
+      mongo:
+        condition: service_started
+
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_DATABASE: ProductionTest
+    expose:
+      - "27017"
