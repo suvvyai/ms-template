@@ -52,7 +52,7 @@ dev = [
 requires-dist = [
     { name = "beanie", specifier = ">=1.29.0" },
     { name = "fastapi", specifier = ">=0.115.12" },
-    { name = "fastapi-enum-errors", specifier = ">=0.1.2" },
+    { name = "fastapi-enum-errors", specifier = ">=0.2.2" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "pydantic", specifier = ">=2.10.6" },
     { name = "pydantic-settings", specifier = ">=2.8.1" },
@@ -159,16 +159,16 @@ wheels = [
 
 [[package]]
 name = "fastapi-enum-errors"
-version = "0.1.2"
+version = "0.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "fastapi" },
     { name = "httpx" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/1e/63/a773b967c3fa5a5ba9120e0c758c6f19bde09a3f3f5d2fa38a85f2c8cd82/fastapi_enum_errors-0.1.2.tar.gz", hash = "sha256:ba87e5a11fe44772218ea24c4ea0edec78f3ecdef44c7764fc98bdbea72ee820", size = 25289 }
+sdist = { url = "https://files.pythonhosted.org/packages/4b/d1/f6bd4b9b025f2e0a5d3b98d4d7c9791c229efacb65adf3440222bf53c4ad/fastapi_enum_errors-0.2.2.tar.gz", hash = "sha256:abd25f254b79efaa4b4745ac241ce4fd9edc4f6956697431916dd32c61b57e9d", size = 25462 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/13/c2/f66ec97d58d5a600f91debaafd5c09793cb5ef932d7e39bd42abd965decf/fastapi_enum_errors-0.1.2-py3-none-any.whl", hash = "sha256:5bd9c525c70d016b2b3f8e0dce2fcba33e013f973eeab18aeac1457d09fa2e3a", size = 8923 },
+    { url = "https://files.pythonhosted.org/packages/b8/f8/6ffdcdbd8afe846c4e85d2b2339f8f233c82bf96ef6a89eaecc52c0e684f/fastapi_enum_errors-0.2.2-py3-none-any.whl", hash = "sha256:5e038225859bd3899be2cba6ecfe6bce46a9216c80b74c43e7ac3a2e34b03ce4", size = 8971 },
 ]
 
 [[package]]

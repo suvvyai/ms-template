@@ -1,12 +1,12 @@
 from enum import auto
 
-from fastapi_enum_errors import ErrorEnum, classproperty
+from fastapi_enum_errors import ErrorEnum
 
 
 class SuvvyError(ErrorEnum):
     AUTH_INVALID_TOKEN = (auto(), 401)
     """Неверный токен"""
 
-    @classproperty
+    @classmethod
     def error_response_models(cls) -> dict:
         return {}
