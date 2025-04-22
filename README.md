@@ -14,7 +14,7 @@
   - Пример API эндпоинта в `src/app/routers/api/hello_world.py`
 
 - **MongoDB интеграция**:
-  - Подключение через Beanie ORM
+  - Подключение через Beanie ODM
   - Инициализация базы данных в `src/services/database.py`
 
 - **Конфигурация**:
