@@ -1,7 +1,12 @@
 line-length = 120
 target-version = "py313"
 
+[format]
+exclude = ["*.ipynb"]
+quote-style = "double"
+
 [lint]
+exclude = ["*.ipynb"]
 select = [
     "E",
     "F",
@@ -37,7 +42,11 @@ select = [
     "W",
     "UP",
     "FURB",
-    "RUF"
+    "RUF",
+    "EM",
+    "NPY",
+    "PD",
+    "PL",
 ]
 ignore = [
     "E741", # https://docs.astral.sh/ruff/rules/ambiguous-variable-name/
@@ -56,7 +65,17 @@ ignore = [
     "RUF003", # https://docs.astral.sh/ruff/rules/ambiguous-unicode-character-comment/
     "RUF018", # https://docs.astral.sh/ruff/rules/assignment-in-assert/
     "RUF012", # https://docs.astral.sh/ruff/rules/mutable-class-default/
+    "PLC0415", # https://docs.astral.sh/ruff/rules/import-outside-top-level/
+    "PLR0913", # https://docs.astral.sh/ruff/rules/too-many-arguments/
+    "PLR0912", # https://docs.astral.sh/ruff/rules/too-many-branches/
+    "PLR0915", # https://docs.astral.sh/ruff/rules/too-many-statements/
+    "PLR2004", # https://docs.astral.sh/ruff/rules/magic-value-comparison/
+    "PLR0911", # https://docs.astral.sh/ruff/rules/too-many-return-statements/
 ]
+
+[lint.per-file-ignores]
+"scripts/**.py" = ["INP001", "T201", "T203"]
+"examples/**.py" = ["INP001", "T201", "T203"]
 
 [lint.flake8-annotations]
 mypy-init-return = true
