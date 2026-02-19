@@ -47,6 +47,9 @@ select = [
     "NPY",
     "PD",
     "PL",
+    "TRY",
+    "N",
+    "UP",
 ]
 ignore = [
     "E741", # https://docs.astral.sh/ruff/rules/ambiguous-variable-name/
