@@ -73,6 +73,10 @@ test-v *args:
 test-file file *args:
     just test-v {{file}} {{args}}
 
+# Запустить тесты для определённого модуля (например: just test-module test_app)
+test-module module *args:
+    just test-v tests/{{module}} {{args}}
+
 # === Комбинированные команды ===
 
 # Проверить всё перед коммитом (lint + mypy + ty)
@@ -80,3 +84,9 @@ pre-commit: lint mypy ty
 
 # Исправить и проверить
 fix-and-check: lint-fix mypy ty
+
+# Исправить и проверить
+all: fix-and-check
+
+# Исправить и проверить + тесты
+all-test: fix-and-check test

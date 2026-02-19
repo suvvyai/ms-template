@@ -14,13 +14,14 @@ just lint         # check + format-check
 just lint-fix     # fix + format
 just mypy         # mypy .
 just ty           # ty check .
-just pre-commit   # lint + mypy + ty (перед коммитом)
+just test         # запустить тесты
+just test-v       # тесты с подробным выводом
+just test-file <file>  # запустить конкретный файл
+just test-module <module>  # запустить тесты модуля (tests/<module>)
+just pre-commit   # lint + mypy + ty
 just fix-and-check # lint-fix + mypy + ty
-```
-
-Тесты:
-```bash
-docker compose -f docker-compose-test.yml run test
+just all          # алиас для fix-and-check
+just all-test     # fix-and-check + test
 ```
 
 ## Архитектура

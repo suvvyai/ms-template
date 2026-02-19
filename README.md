@@ -90,8 +90,14 @@ just lint         # Запустить все проверки линтера
 just lint-fix     # Исправить все проблемы линтера
 just mypy         # Запустить mypy
 just ty           # Запустить ty (проверка типов от Astral)
+just test         # Запустить тесты
+just test-v       # Тесты с подробным выводом
+just test-file <file>  # Запустить конкретный тестовый файл
+just test-module <module>  # Запустить тесты модуля (tests/<module>)
 just pre-commit   # Проверить всё перед коммитом (lint + mypy + ty)
 just fix-and-check # Исправить и проверить
+just all          # Алиас для fix-and-check
+just all-test     # fix-and-check + тесты
 ```
 
 ### Команды без just
