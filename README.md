@@ -35,6 +35,8 @@
   - **pytest** для тестирования
   - **ruff** для линтинга и форматирования
   - **mypy** для проверки типов
+  - **ty** для проверки типов (от Astral)
+  - **just** для автоматизации команд
   - **pre-commit** для авто-использования **ruff**
 
 ## Что нужно изменить для использования
@@ -66,10 +68,39 @@ MICROSERVICES__KEY=your-secret-key
 
 ## Список основных команд
 
+### Использование just
+
+Установка just:
+```bash
+brew install just    # macOS
+cargo install just   # или через Cargo
+```
+
+Список всех доступных команд:
+```bash
+just
+```
+
+Основные команды:
+```bash
+just check        # Запустить ruff check
+just fix          # Запустить ruff check с автоисправлением
+just format       # Отформатировать код
+just lint         # Запустить все проверки линтера
+just lint-fix     # Исправить все проблемы линтера
+just mypy         # Запустить mypy
+just ty           # Запустить ty (проверка типов от Astral)
+just pre-commit   # Проверить всё перед коммитом (lint + mypy + ty)
+just fix-and-check # Исправить и проверить
+```
+
+### Команды без just
+
 ```bash
 ruff check
 ruff format
 mypy .
+ty check .
 pre-commit install
 uv sync
 ```
