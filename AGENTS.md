@@ -32,7 +32,7 @@ src/
 ├── main.py           # Точка входа (uvicorn)
 ├── app/
 │   ├── app.py        # FastAPI instance с lifespan
-│   ├── routers/      # Авто-discovery роутеров через pkgutil
+│   ├── routers/      # API роутеры
 │   ├── schemas/      # Pydantic модели запросов/ответов
 │   └── depends/      # FastAPI dependencies (auth)
 └── core/
@@ -44,7 +44,6 @@ src/
 
 ## Ключевые паттерны
 
-- **Авто-discovery роутеров**: роутеры в `src/app/routers/` подключаются автоматически
 - **Аутентификация**: заголовок `Microservice-Api-Key`, dependency `MicroserviceAuth`
 - **Переменные окружения**: Pydantic Settings с разделителем `__` (MONGO__URL, MICROSERVICES__KEY)
 - **Ошибки**: enum `SuvvyError` с HTTP статусами через fastapi-enum-errors

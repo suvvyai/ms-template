@@ -39,6 +39,40 @@ mypy:
 ty:
     ty check .
 
+# === Тесты ===
+
+# Переменные
+test_env := ".test.env"
+test_local_env := ".test.local.env"
+
+# Загрузить переменные окружения для тестов
+[private]
+load-test-env:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [[ ! -f "{{test_local_env}}" ]]; then
+        echo "Ошибка: файл {{test_local_env}} не найден"
+        echo "Создайте его на основе {{test_env}}"
+        exit 1
+    fi
+
+# Запустить все тесты
+test *args:
+    #!/usr/bin/env bash
+    set -a
+    source {{test_env}}
+    source {{test_local_env}}
+    set +a
+    python -m pytest {{args}}
+
+# Запустить тесты с подробным выводом
+test-v *args:
+    just test -v --no-header {{args}}
+
+# Запустить конкретный тестовый файл
+test-file file *args:
+    just test-v {{file}} {{args}}
+
 # === Комбинированные команды ===
 
 # Проверить всё перед коммитом (lint + mypy + ty)

@@ -2,9 +2,9 @@ import asyncio
 from asyncio import AbstractEventLoop
 from collections.abc import AsyncGenerator
 
-import motor.motor_asyncio
 import pytest
 from httpx import ASGITransport, AsyncClient
+from pymongo import AsyncMongoClient
 
 from core import settings
 from core.database import initialize_database
@@ -29,8 +29,7 @@ async def drop_db() -> None:
     if not settings.mongo.db_name.lower().endswith("test"):
         raise RuntimeError
 
-    mongo: motor.motor_asyncio.AsyncIOMotorClient = motor.motor_asyncio.AsyncIOMotorClient(settings.mongo.url)
-    await mongo.drop_database(settings.mongo.db_name)
+    await AsyncMongoClient(settings.mongo.url).drop_database(settings.mongo.db_name)
 
     # TODO: сюда добавлять Redis и прочее
 
