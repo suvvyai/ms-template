@@ -48,6 +48,7 @@ src/
 - **Аутентификация**: заголовок `Microservice-Api-Key`, dependency `MicroserviceAuth`
 - **Переменные окружения**: Pydantic Settings с разделителем `__` (MONGO__URL, MICROSERVICES__KEY)
 - **Ошибки**: enum `SuvvyError` с HTTP статусами через fastapi-enum-errors
+- When applying PR review comments, ask the user to choose the specific comments before starting work. Do not guess what changes are needed.
 
 ## Конфигурация
 
