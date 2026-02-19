@@ -49,9 +49,9 @@ select = [
     "PL",
     "TRY",
     "N",
-    "UP",
 ]
 ignore = [
+    "COM812", # https://docs.astral.sh/ruff/rules/missing-trailing-comma/ - conflicts with formatter
     "E741", # https://docs.astral.sh/ruff/rules/ambiguous-variable-name/
     "E501", # https://docs.astral.sh/ruff/rules/line-too-long/
     "FAST003", # https://docs.astral.sh/ruff/rules/fast-api-unused-path-parameter/

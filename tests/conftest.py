@@ -6,9 +6,9 @@ import pytest
 from httpx import ASGITransport, AsyncClient
 from pymongo import AsyncMongoClient
 
+from app.app import app
 from core import settings
 from core.database import initialize_database
-from src.app.app import app
 
 
 @pytest.fixture(scope="session")
@@ -25,9 +25,10 @@ async def init_db() -> None:
 
 @pytest.fixture(autouse=True)
 async def drop_db() -> None:
-    """Дропнуть бд перед каждым тестом"""
+    """Дропнуть бд перед каждым тестом."""
     if not settings.mongo.db_name.lower().endswith("test"):
-        raise RuntimeError
+        msg = f"Попытка запустить тесты с продакшн БД: {settings.mongo.db_name}. Используйте БД с суффиксом 'test'"
+        raise RuntimeError(msg)
 
     await AsyncMongoClient(settings.mongo.url).drop_database(settings.mongo.db_name)
 

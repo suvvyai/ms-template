@@ -1,3 +1,5 @@
+"""Модуль обработчиков логирования."""
+
 import inspect
 import logging
 
@@ -5,7 +7,19 @@ from loguru import logger
 
 
 class UvicornHandler(logging.Handler):
+    """
+    Обработчик для перенаправления логов Uvicorn в Loguru.
+
+    Позволяет использовать единый формат логирования через Loguru
+    для всех логов приложения, включая логи Uvicorn.
+    """
+
     def emit(self, record: logging.LogRecord) -> None:
+        """
+        Обрабатывает запись лога и перенаправляет её в Loguru.
+
+        :param record: запись лога из стандартного модуля logging
+        """
         # Get corresponding Loguru level if it exists.
         level: str | int
         try:

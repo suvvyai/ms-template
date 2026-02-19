@@ -10,18 +10,18 @@
 
 - **FastAPI приложение**:
   - Маршрутизаторы в `src/app/routers`
-  - Модели Pydantic в `src/schemas` и `src/models`
+  - Модели Pydantic в `src/app/schemas`
   - Пример API эндпоинта в `src/app/routers/api/hello_world.py`
 
 - **MongoDB интеграция**:
   - Подключение через Beanie ODM
-  - Инициализация базы данных в `src/services/database.py`
+  - Инициализация базы данных в `src/core/database/registry.py`
 
 - **Конфигурация**:
-  - Настройки через переменные окружения в `src/services/settings_model.py`
-  - Логирование через Loguru в `src/services/logs/handlers.py`
-  - Обработка ошибок в `src/services/errors.py`
-  - Аутентификация микросервисов в `src/services/auth.py`
+  - Настройки через переменные окружения в `src/core/settings_model.py`
+  - Логирование через Loguru в `src/core/logs/handlers.py`
+  - Обработка ошибок в `src/core/errors.py`
+  - Аутентификация микросервисов в `src/app/depends/auth.py`
 
 - **Докеризация**:
   - `Dockerfile` для продакшена
@@ -46,15 +46,15 @@
 
 2. **Настройки базы данных**:
    - Настроить MongoDB URL, имя БД и путь к сертификату в переменных окружения
-   - Добавить модели документов Beanie в `initialize_database()` в `src/services/database.py`
+   - Добавить модели документов Beanie в `initialize_database()` в `src/core/database/registry.py`
 
 3. **Аутентификация**:
    - Настроить API ключи микросервисов в переменных окружения
 
 4. **Разработка API**:
    - Создать необходимые маршрутизаторы в `src/app/routers`
-   - Добавить модели схем в `src/schemas`
-   - Реализовать бизнес-логику в `src/services`
+   - Добавить модели схем в `src/app/schemas`
+   - Реализовать бизнес-логику в `src/core`
 
 ## Переменные окружения
 

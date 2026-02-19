@@ -1,3 +1,5 @@
+"""Модуль инициализации базы данных MongoDB."""
+
 from typing import Any
 
 from beanie import init_beanie
@@ -8,6 +10,14 @@ from core import settings
 
 
 async def initialize_database() -> None:
+    """
+    Инициализирует подключение к MongoDB через Beanie ODM.
+
+    Создаёт асинхронное подключение к MongoDB и инициализирует Beanie
+    с указанными моделями документов.
+
+    :raises ConnectionError: если не удалось подключиться к базе данных
+    """
     logger.info("Initialising DB...")
     kwargs: dict[str, Any] = {}
     if settings.mongo.cert_file_path:
