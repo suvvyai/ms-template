@@ -32,7 +32,7 @@ async def drop_db() -> None:
 
     await AsyncMongoClient(settings.mongo.url).drop_database(settings.mongo.db_name)
 
-    # TODO: сюда добавлять Redis и прочее
+    # TODO(template): сюда добавлять Redis и прочее  # noqa: FIX002
 
 
 @pytest.fixture(scope="session")

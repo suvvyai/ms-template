@@ -13,7 +13,7 @@ def configure_logger() -> None:
         "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | {message} {exception}\n"
     )
 
-    def log_format(record: "Record") -> str:  # type: ignore  # noqa: F821
+    def log_format(record: "Record") -> str:  # type: ignore[name-defined]  # noqa: F821
         if record["level"].name == "REQUEST":
             return log_format_request
         return log_format_all

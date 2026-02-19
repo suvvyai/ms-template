@@ -12,7 +12,7 @@ from core.errors import SuvvyError
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI) -> AsyncGenerator[None]:
+async def lifespan(_app: FastAPI) -> AsyncGenerator[None]:
     await initialize_database()
     yield
 
