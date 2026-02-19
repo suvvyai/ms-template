@@ -49,6 +49,17 @@ select = [
     "PL",
     "TRY",
     "N",
+    "BLE",
+    "DTZ",
+    "T10",
+    "FIX",
+    "FA",
+    "SLF",
+    "SLOT",
+    "ARG",
+    "PTH",
+    "PGH",
+    "FBT",
 ]
 ignore = [
     "COM812", # https://docs.astral.sh/ruff/rules/missing-trailing-comma/ - conflicts with formatter
