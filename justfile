@@ -80,10 +80,10 @@ test-module module *args:
 # === Комбинированные команды ===
 
 # Проверить всё перед коммитом (lint + mypy + ty)
-pre-commit: lint mypy ty
+pre-commit: lint ty mypy
 
 # Исправить и проверить
-fix-and-check: lint-fix mypy ty
+fix-and-check: lint-fix ty mypy
 
 # Исправить и проверить
 all: fix-and-check
