@@ -2,7 +2,7 @@ from typing import Any
 
 from beanie import init_beanie
 from loguru import logger
-from motor.motor_asyncio import AsyncIOMotorClient
+from pymongo import AsyncMongoClient
 
 from core import settings
 
@@ -14,7 +14,7 @@ async def initialize_database() -> None:
         kwargs |= {"tlsCAFile": settings.mongo.cert_file_path}
 
     await init_beanie(
-        database=AsyncIOMotorClient(settings.mongo.url, **kwargs).get_database(settings.mongo.db_name),
+        database=AsyncMongoClient(settings.mongo.url, **kwargs).get_database(settings.mongo.db_name),
         document_models=[],
     )
     logger.success("DB is ready!")
