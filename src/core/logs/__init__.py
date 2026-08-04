@@ -8,7 +8,7 @@ from core.logs.handlers import UvicornHandler
 __all__ = ["UvicornHandler", "configure_logger", "get_uvicorn_log_config"]
 
 if TYPE_CHECKING:
-    from loguru._record import Record
+    from loguru import Record
 
 
 def configure_logger() -> None:
