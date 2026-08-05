@@ -4,6 +4,8 @@ ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 # Disable Python downloads, because we want to use the system interpreter across both images.
 ENV UV_PYTHON_DOWNLOADS=0
 
+RUN apt-get update && apt-get install -y --no-install-recommends git
+
 WORKDIR /app
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \

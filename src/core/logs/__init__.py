@@ -1,10 +1,14 @@
 import sys
+from typing import TYPE_CHECKING
 
 from loguru import logger
 
 from core.logs.handlers import UvicornHandler
 
 __all__ = ["UvicornHandler", "configure_logger", "get_uvicorn_log_config"]
+
+if TYPE_CHECKING:
+    from loguru import Record
 
 
 def configure_logger() -> None:
@@ -13,7 +17,7 @@ def configure_logger() -> None:
         "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | {message} {exception}\n"
     )
 
-    def log_format(record: "Record") -> str:  # type: ignore[name-defined]  # noqa: F821
+    def log_format(record: "Record") -> str:
         if record["level"].name == "REQUEST":
             return log_format_request
         return log_format_all
