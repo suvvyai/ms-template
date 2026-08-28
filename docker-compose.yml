@@ -2,5 +2,5 @@ version: 'v1'
 
 services:
   python-app:
-    image: ghcr.io/suvvyai/ms-template:latest
+    image: ghcr.io/your-org/your-service:latest
     restart: unless-stopped

@@ -1,6 +1,6 @@
-# Репозиторий-шаблон для микросервисов внутри Савви
+# Репозиторий-шаблон для микросервисов
 
-[![Использовать этот шаблон](https://img.shields.io/badge/Использовать_этот_шаблон-blue?style=for-the-badge&logoColor=white&logo=github)](https://github.com/suvvyai/ms-template/generate)
+[![Использовать этот шаблон](https://img.shields.io/badge/Использовать_этот_шаблон-blue?style=for-the-badge&logoColor=white&logo=github)](../../generate)
 
 ## Содержание шаблона
 
@@ -43,6 +43,8 @@
 
 1. **Настройки проекта**:
    - Обновить имя и описание проекта в `pyproject.toml`
+   - Переименовать сервис и образ в `docker-compose.yml` (по умолчанию — `python-app` /
+     `ghcr.io/your-org/your-service:latest`) — легко забыть, проверять перед первым релизом
 
 2. **Настройки базы данных**:
    - Настроить MongoDB URL, имя БД и путь к сертификату в переменных окружения

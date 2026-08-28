@@ -30,7 +30,7 @@ jobs:
           context: .
           push: false
           load: true
-          tags: suvvyai/localtest:latest
+          tags: localtest:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
           file: dev.Dockerfile

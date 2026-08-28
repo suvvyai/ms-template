@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   test:
-    image: suvvyai/localtest:latest
+    image: localtest:latest
 
     env_file:
       - ".test.env"
